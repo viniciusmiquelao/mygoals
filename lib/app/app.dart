@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'routes/router.dart';
+import 'routes/routes.dart';
 
 class MyGoalApp extends StatelessWidget {
   const MyGoalApp({super.key});
@@ -8,6 +10,9 @@ class MyGoalApp extends StatelessWidget {
     return MaterialApp(
       title: 'My goals',
       debugShowCheckedModeBanner: false,
+      routes: CustomRouter.routes,
+      onUnknownRoute: CustomRouter.onGenerateUnknowedRoute,
+      initialRoute: Routes.login,
       builder: (context, widget) {
         return ScrollConfiguration(
           behavior: const BouncingScrollBehavior(),
