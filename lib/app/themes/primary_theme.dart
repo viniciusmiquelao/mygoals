@@ -5,6 +5,13 @@ final primaryTheme = ThemeData(
   brightness: Brightness.light,
   iconTheme: const IconThemeData(color: Color(0xff95bfd8)),
   hintColor: Color(0xff95bfd8),
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    backgroundColor: Colors.white,
+    selectedItemColor: Color(0xffff9a96),
+    unselectedItemColor: Color(0xff314560),
+    type: BottomNavigationBarType.fixed,
+    selectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
+  ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       elevation: 0,
@@ -38,7 +45,7 @@ final primaryTheme = ThemeData(
       fontSize: 16,
     ),
     button: TextStyle(
-      color: Color(0xff314560),
+      color: Color(0xff5a6e89),
       fontWeight: FontWeight.w600,
       fontSize: 16,
     ),
@@ -47,13 +54,18 @@ final primaryTheme = ThemeData(
       fontWeight: FontWeight.w800,
       fontSize: 14,
     ),
+    subtitle2: TextStyle(
+      color: Colors.white.withOpacity(.6),
+      fontWeight: FontWeight.w800,
+      fontSize: 12,
+    ),
     overline: TextStyle(
       color: Color(0xff95bfd8),
       fontWeight: FontWeight.w800,
       fontSize: 14,
     ),
     headline5: TextStyle(
-      color: Color(0xff95bfd8),
+      color: Colors.white,
       fontWeight: FontWeight.w800,
       fontSize: 28,
     ),
@@ -63,9 +75,9 @@ final primaryTheme = ThemeData(
       fontSize: 44,
     ),
     headline6: TextStyle(
-      color: Color(0xff95bfd8),
-      fontWeight: FontWeight.w800,
-      fontSize: 22,
+      color: Colors.white,
+      fontWeight: FontWeight.w600,
+      fontSize: 18,
     ),
   ),
   tabBarTheme: const TabBarTheme(
