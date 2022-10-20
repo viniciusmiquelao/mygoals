@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mygoals/app/themes/primary_theme.dart';
+import 'package:mygoals/app/ui/pages/login_page.dart';
 import 'routes/router.dart';
 import 'routes/routes.dart';
 
@@ -11,8 +13,10 @@ class MyGoalApp extends StatelessWidget {
       title: 'My goals',
       debugShowCheckedModeBanner: false,
       routes: CustomRouter.routes,
+      theme: primaryTheme,
       onUnknownRoute: CustomRouter.onGenerateUnknowedRoute,
       initialRoute: Routes.login,
+      home: const LoginPage(),
       builder: (context, widget) {
         return ScrollConfiguration(
           behavior: const BouncingScrollBehavior(),
