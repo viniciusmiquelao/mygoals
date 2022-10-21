@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mygoals/app/themes/primary_theme.dart';
+import 'package:mygoals/app/config/themes/primary_theme.dart';
 import 'package:mygoals/app/ui/pages/login_page.dart';
-import 'routes/router.dart';
-import 'routes/routes.dart';
+import 'config/routes/router.dart';
+import 'config/routes/routes.dart';
 
 class MyGoalApp extends StatelessWidget {
   const MyGoalApp({super.key});
