@@ -17,6 +17,7 @@ abstract class Assets {
 
   //images
   static const logo = AssetData('assets/images/logo.svg');
+  static const graph = AssetData('assets/images/graph.png');
 }
 
 class Asset extends StatelessWidget {
@@ -51,7 +52,7 @@ class Asset extends StatelessWidget {
           )
         : Image.asset(
             iconData!.path,
-            color: color ?? Theme.of(context).iconTheme.color,
+            color: color,
             height: height,
             width: width,
           );
