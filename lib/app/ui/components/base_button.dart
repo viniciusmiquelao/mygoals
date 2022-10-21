@@ -12,7 +12,6 @@ class BaseButton extends StatelessWidget {
     this.height = 45,
     this.width = 150,
     this.borderRadius,
-    Brightness brightness = Brightness.dark,
   }) : super(key: key);
 
   final String? text;
