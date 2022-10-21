@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:mygoals/app/constants/spacements.dart';
+import 'package:get/get.dart';
+import 'package:mygoals/app/config/constants/spacements.dart';
+import 'package:mygoals/app/dependences_injector/dependeces_injector.dart';
 import 'package:mygoals/app/ui/components/assets.dart';
 import 'package:mygoals/app/ui/components/base_body.dart';
 import 'package:mygoals/app/ui/components/card_home.dart';
 import 'package:mygoals/app/ui/components/custom_app_bar.dart';
 import 'package:mygoals/app/ui/components/custom_bottom_navigation_bar.dart';
 import 'package:mygoals/app/ui/pages/home_controller.dart';
-import 'package:mygoals/app/utils/darke.dart';
+
+import '../../config/routes/routes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -65,47 +68,52 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    _homeController = HomeController();
+    _homeController = DependencesInjector.get<HomeController>();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      extendBodyBehindAppBar: true,
-      appBar: CustomAppBar(
-        title: _homeController.title,
-      ),
-      body: BaseBody(
-        child: Column(
-          children: [
-            const SizedBox(height: 80),
-            Expanded(
-              child: GridView.builder(
-                padding: const EdgeInsets.all(Spacements.M),
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 200,
-                  childAspectRatio: (MediaQuery.of(context).size.width * 1.7) /
-                      MediaQuery.of(context).size.height,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
-                ),
-                itemCount: buttons.length,
-                itemBuilder: (_, index) {
-                  final button = buttons[index];
-                  return CardHome(buttonData: button);
-                },
-              ),
-            ),
-          ],
+    return Obx(
+      () => Scaffold(
+        extendBody: true,
+        extendBodyBehindAppBar: true,
+        appBar: CustomAppBar(
+          title: _homeController.title.value,
         ),
-      ),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        homeController: _homeController,
-        onTap: (value) => setState(() {
-          _homeController.setTitle(value);
-        }),
+        body: BaseBody(
+          child: Column(
+            children: [
+              const SizedBox(height: 80),
+              Expanded(
+                child: GridView.builder(
+                  padding: const EdgeInsets.all(Spacements.M),
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 200,
+                    childAspectRatio:
+                        (MediaQuery.of(context).size.width * 1.7) /
+                            MediaQuery.of(context).size.height,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                  ),
+                  itemCount: buttons.length,
+                  itemBuilder: (_, index) {
+                    final button = buttons[index];
+                    return CardHome(
+                      buttonData: button,
+                      onPressed: () => Navigator.pushNamed(
+                        context,
+                        Routes.progress,
+                        arguments: button,
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+        bottomNavigationBar: const CustomBottomNavigationBar(),
       ),
     );
   }
