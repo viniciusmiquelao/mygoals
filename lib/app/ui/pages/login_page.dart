@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mygoals/app/constants/spacements.dart';
+import 'package:mygoals/app/config/constants/spacements.dart';
 import 'package:mygoals/app/ui/components/assets.dart';
 import 'package:mygoals/app/ui/components/base_body.dart';
 import 'package:mygoals/app/ui/components/base_button.dart';
 import 'package:mygoals/app/ui/components/safe_scroll_view.dart';
 
-import '../../routes/routes.dart';
+import '../../config/routes/routes.dart';
 import '../components/custom_app_bar.dart';
 
 class LoginPage extends StatelessWidget {
@@ -71,10 +71,10 @@ class LoginPage extends StatelessWidget {
                         labelText: 'Password',
                       ),
                     ),
-                    const SizedBox(height: Spacements.S),
+                    const SizedBox(height: Spacements.M),
                     Text(
                       'Forgot password?',
-                      style: Theme.of(context).textTheme.subtitle1,
+                      style: Theme.of(context).textTheme.bodyText1,
                     ),
                   ],
                 ),
@@ -90,7 +90,7 @@ class LoginPage extends StatelessWidget {
                   children: [
                     Text(
                       "Don't have an account?",
-                      style: Theme.of(context).textTheme.subtitle2,
+                      style: Theme.of(context).textTheme.bodyText1,
                     ),
                     const SizedBox(height: Spacements.XS),
                     Text(
