@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class HomeController {
+class HomeController extends GetxController {
   final List<BottomNavigationBarItem> items = const [
     BottomNavigationBarItem(
       label: 'Home',
@@ -28,11 +29,11 @@ class HomeController {
     ),
   ];
 
-  int currentIndex = 0;
-  String title = 'Home';
+  RxInt currentIndex = 0.obs;
+  RxString title = 'Home'.obs;
 
   void setTitle(int value) {
-    title = items[value].label!;
-    currentIndex = value;
+    title.value = items[value].label!;
+    currentIndex.value = value;
   }
 }
