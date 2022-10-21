@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:mygoals/app/routes/routes.dart';
+import 'package:mygoals/app/config/constants/spacements.dart';
 import 'package:mygoals/app/ui/pages/home_page.dart';
-
-import '../../constants/spacements.dart';
-import '../../utils/darke.dart';
+import 'package:mygoals/app/utils/darke.dart';
 import 'assets.dart';
 
 class CardHome extends StatelessWidget {
-  const CardHome({super.key, required this.buttonData});
+  const CardHome({
+    super.key,
+    required this.buttonData,
+    this.onPressed,
+  });
 
   final ButtonData buttonData;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,7 @@ class CardHome extends StatelessWidget {
         color: buttonData.color,
         child: InkWell(
           borderRadius: BorderRadius.circular(25),
-          onTap: () => Navigator.pushNamed(context, Routes.home),
+          onTap: onPressed,
           child: Stack(
             children: [
               Align(
