@@ -24,6 +24,7 @@ class _ProgressPageState extends State<ProgressPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       extendBodyBehindAppBar: true,
       appBar: CustomAppBar(title: 'Progress'),
       bottomNavigationBar: const CustomBottomNavigationBar(),
